@@ -5,7 +5,7 @@ const findAll = async(req,res)=>{
         all : true
       }]
     })
-    return res.send(batch)
+    return res.status(201).json({batch})
   } catch (error){
     return res.status(404).send("not found")
   }
