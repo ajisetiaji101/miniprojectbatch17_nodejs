@@ -1,5 +1,7 @@
-import UserController from "./UserController"
+import UserController from "./UserController";
+import PlacementController from "./PlacementController";
 
-export default{
-    UserController,
-}
+export default {
+  UserController,
+  PlacementController,
+};

@@ -1,5 +1,7 @@
-import UserRoute from './UserRoute'
+import UserRoute from "./UserRoute";
+import PlacementRoute from "./PlacementRoute";
 
-export default{
-    UserRoute
-}
+export default {
+  UserRoute,
+  PlacementRoute,
+};
