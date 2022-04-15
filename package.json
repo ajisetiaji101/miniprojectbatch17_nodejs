@@ -7,7 +7,7 @@
     "development": "nodemon --exec babel-node ./server/index.js",
     "clean": "rm -rf build && mkdir build",
     "cleanw": "rmdir /S build && mkdir build",
-    "start": "node ./build/index.js",
+    "start": "node ../server/index.js",
     "build-server": "babel -d ./build ./server -s",
     "build": "npm run clean && npm run build-server",
     "buildw": "npm run cleanw && npm run build-server",

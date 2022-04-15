@@ -1,5 +1,5 @@
 // 1. pastikan selalu import dotenv di line pertama
-//import "dotenv/config";
+import "dotenv/config";
 import config from './config/config'
 import express from "express";
 import cors from "cors";
@@ -41,6 +41,7 @@ app.use(async (req,res,next) =>{
 
 // call routes
 app.use(config.URL_DOMAIN+"/auth",routes.UserRoute)
+app.use(config.URL_DOMAIN+"/curriculum",routes.CurriculumRoute)
 
 
 //use middleware to handle error from others modules
