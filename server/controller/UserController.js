@@ -17,7 +17,7 @@ const signup = async (req, res) => {
       },
     });
     const { user_name, user_email } = result.dataValues;
-    res.json({ user_name, user_email });
+    res.send({ user_name, user_email });
   } catch (error) {
     res.status(404).json(error.message);
   }
