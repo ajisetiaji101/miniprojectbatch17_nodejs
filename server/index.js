@@ -38,6 +38,7 @@ app.use(async (req, res, next) => {
 // call routes
 app.use(config.URL_DOMAIN + "/auth", routes.UserRoute);
 app.use(config.URL_DOMAIN + "/placement", routes.PlacementRoute);
+app.use(config.URL_DOMAIN + "/curriculum", routes.curriculumRoute);
 
 //use middleware to handle error from others modules
 app.use(middleware.handleError);
