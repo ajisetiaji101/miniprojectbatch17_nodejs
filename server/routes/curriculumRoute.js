@@ -1,10 +1,10 @@
 import { Router } from "express";
-import indexController from "../controller/indexController";
+import IndexController from "../controller/IndexController";
 import uploadDownload from "../middleware/uploadDownload";
 
 const router = Router()
 
-router.get('/',indexController.curriculumController.findAll)
+router.get('/',IndexController.CurriculumController.findAll)
 router.get("/images/:filename",uploadDownload.show_curr_logo)
-router.post('/',uploadDownload.uploadFiles,IndexController.curriculumController.createCurr)
+router.post('/',uploadDownload.uploadFiles,IndexController.CurriculumController.createCurr)
 export default router
