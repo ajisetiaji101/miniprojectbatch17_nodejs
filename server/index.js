@@ -42,8 +42,6 @@ app.use(config.URL_DOMAIN + "/curriculum", routes.CurriculumRoute);
 app.use(config.URL_DOMAIN+"/batch",routes.BatchRoute);
 app.use(config.URL_DOMAIN+"/talent",routes.TalentRoute);
 
-
-
 //use middleware to handle error from others modules
 app.use(middleware.handleError);
 app.use(middleware.notFound);
