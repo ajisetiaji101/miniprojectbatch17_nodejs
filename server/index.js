@@ -1,5 +1,4 @@
 // 1. pastikan selalu import dotenv di line pertama
-
 import "dotenv/config";
 import config from './config/config'
 import express from "express";
@@ -14,7 +13,7 @@ import models, { sequelize } from "./models/init-models";
 import routes from "./routes/IndexRoute";
 
 // declare port
-const port = process.env.PORT || 3001;
+const port = process.env.PORT || 3000;
 
 const app = express();
 // parse body params and attache them to req.body
@@ -40,6 +39,9 @@ app.use(async (req, res, next) => {
 app.use(config.URL_DOMAIN + "/auth", routes.UserRoute);
 app.use(config.URL_DOMAIN + "/placement", routes.PlacementRoute);
 app.use(config.URL_DOMAIN + "/curriculum", routes.CurriculumRoute);
+app.use(config.URL_DOMAIN+"/batch",routes.BatchRoute);
+app.use(config.URL_DOMAIN+"/talent",routes.TalentRoute);
+
 
 
 //use middleware to handle error from others modules
