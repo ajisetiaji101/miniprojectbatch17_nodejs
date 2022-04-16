@@ -1,7 +1,13 @@
-import UserController from "./UserController"
-import TalentController from "./TalentController"
+import UserController from "./UserController";
+import PlacementController from "./PlacementController";
+import CurriculumController from "./CurriculumController";
+import BatchController from "./BatchController";
+import TalentController from "./TalentController";
 
-export default{
-    UserController,
-    TalentController
-}
+export default {
+  UserController,
+  PlacementController,
+  CurriculumController,
+  BatchController,
+  TalentController
+};
