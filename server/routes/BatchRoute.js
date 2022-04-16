@@ -1,8 +1,8 @@
 import { Router } from "express";
 import IndexController from "../controller/IndexController";
 
-const router = Router()
+const router = Router();
 
-router.get("/",IndexController.BatchController.findAll);
+router.get("/", IndexController.BatchController.findAll);
 
-export default router
+export default router;

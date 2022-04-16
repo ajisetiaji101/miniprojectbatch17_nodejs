@@ -1,10 +1,9 @@
 import { Router } from "express";
 import IndexController from "../controller/IndexController";
-import UploadDownloadHelper from "../helpers/UploadDownloadHelper"
+import UploadDownloadHelper from "../helpers/UploadDownloadHelper";
 
-const router = Router()
+const router = Router();
 
-router.get('/',IndexController.TalentController.findAll)
-router.post('/',UploadDownloadHelper.uploadFiles,IndexController.TalentController.createEmp)
+router.get("/", IndexController.TalentController.findAll);
 
-export default router
+export default router;
