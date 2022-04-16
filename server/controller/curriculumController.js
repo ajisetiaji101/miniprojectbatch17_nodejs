@@ -7,7 +7,7 @@ const findAll = async(req,res) =>{
     }
 }
 
-const createEmp = async(req,res)=>{
+const createCurr = async(req,res)=>{
     const {files,fields} = req.fileAttrb
     try {
         const result = await req.context.models.curriculum.create({
@@ -47,5 +47,5 @@ const createEmp = async(req,res)=>{
 
 export default {
     findAll,
-    createEmp
+    createCurr
 }

@@ -6,5 +6,5 @@ const router = Router()
 
 router.get('/',indexController.curriculumController.findAll)
 router.get("/images/:filename",uploadDownload.show_curr_logo)
-router.post('/',uploadDownload.uploadFiles,indexController.curriculumController.createEmp)
+router.post('/',uploadDownload.uploadFiles,IndexController.curriculumController.createCurr)
 export default router
