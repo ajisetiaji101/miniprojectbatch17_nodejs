@@ -41,6 +41,9 @@ app.use(async (req,res,next) =>{
 
 // call routes
 app.use(config.URL_DOMAIN+"/auth",routes.UserRoute)
+app.use(config.URL_DOMAIN+"/jobs",routes.JobRoute)
+
+
 
 
 //use middleware to handle error from others modules
