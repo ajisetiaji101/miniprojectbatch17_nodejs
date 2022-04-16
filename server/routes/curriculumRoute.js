@@ -9,4 +9,5 @@ router.get('/',IndexController.CurriculumController.findAll)
 router.get("/images/:filename",uploadDownload.show_curr_logo)
 router.post('/',uploadDownload.uploadFiles,IndexController.CurriculumController.createCurr)
 
+
 export default router
