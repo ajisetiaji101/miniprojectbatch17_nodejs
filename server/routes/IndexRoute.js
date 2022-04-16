@@ -1,9 +1,13 @@
 import UserRoute from "./UserRoute";
 import PlacementRoute from "./PlacementRoute";
-import curriculumRoute from "./curriculumRoute"
+import CurriculumRoute from "./CurriculumRoute";
+import BatchRoute from './BatchRoute';
+import TalentRoute from './TalentRoute';
 
 export default {
   UserRoute,
   PlacementRoute,
-  curriculumRoute
+  CurriculumRoute,
+  BatchRoute,
+  TalentRoute
 };
