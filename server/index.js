@@ -41,6 +41,9 @@ app.use(config.URL_DOMAIN + "/placement", routes.PlacementRoute);
 app.use(config.URL_DOMAIN + "/curriculum", routes.CurriculumRoute);
 app.use(config.URL_DOMAIN+"/batch",routes.BatchRoute);
 app.use(config.URL_DOMAIN+"/talent",routes.TalentRoute);
+app.use(config.URL_DOMAIN+"/instructor",routes.InstructorRoute)
+app.use(config.URL_DOMAIN+"/curriculum_materi",routes.CurriculumMateriRoute)
+app.use(config.URL_DOMAIN+"/curriculum_reviews",routes.CurriculumReviewsRoute)
 
 
 

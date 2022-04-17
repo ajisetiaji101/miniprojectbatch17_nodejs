@@ -5,6 +5,6 @@ import UploadDownloadHelper from "../helpers/UploadDownloadHelper"
 const router = Router()
 
 router.get('/',IndexController.TalentController.findAll)
-router.post('/',UploadDownloadHelper.uploadFiles,IndexController.TalentController.createEmp)
+router.post('/',UploadDownloadHelper.uploadSingleFile,IndexController.TalentController.createEmp)
 
 export default router
