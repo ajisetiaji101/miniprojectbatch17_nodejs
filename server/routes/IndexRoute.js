@@ -3,10 +3,10 @@ import PlacementRoute from "./PlacementRoute";
 import BatchRoute from './BatchRoute';
 import TalentRoute from './TalentRoute';
 import InstructorRoute from "./InstructorRoute";
-import CurriculumRoute from "./CurriculumRoute"
+import CurriculumRoute from "./CurriculumRoute";
 import CurriculumMateriRoute from "./CurriculumMateriRoute";
 import CurriculumReviewsRoute from "./CurriculumReviewsRoute";
-import JobRoute from './JobRoute'
+import JobRoute from './JobRoute';
 
 
 export default {
@@ -18,7 +18,6 @@ export default {
   CurriculumRoute,
   CurriculumMateriRoute,
   CurriculumReviewsRoute,
-  CurriculumRoute,
   JobRoute
 };
 
