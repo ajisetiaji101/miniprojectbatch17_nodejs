@@ -4,6 +4,7 @@ import UploadDownloadHelper from "../helpers/UploadDownloadHelper";
 
 const router = Router();
 
+router.get("/detail", IndexController.TalentController.detail);
 router.get("/", IndexController.TalentController.findAll);
 
 export default router;
