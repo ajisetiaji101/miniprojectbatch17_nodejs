@@ -1,5 +1,5 @@
 // 1. pastikan selalu import dotenv di line pertama
-//import "dotenv/config";
+import "dotenv/config";
 import config from './config/config'
 import express from "express";
 import cors from "cors";
