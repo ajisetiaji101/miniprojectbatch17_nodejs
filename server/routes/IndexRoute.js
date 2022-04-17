@@ -6,6 +6,8 @@ import InstructorRoute from "./InstructorRoute";
 import CurriculumRoute from "./CurriculumRoute"
 import CurriculumMateriRoute from "./CurriculumMateriRoute";
 import CurriculumReviewsRoute from "./CurriculumReviewsRoute";
+import JobRoute from './JobRoute'
+
 
 export default {
   UserRoute,
@@ -15,5 +17,8 @@ export default {
   InstructorRoute,
   CurriculumRoute,
   CurriculumMateriRoute,
-  CurriculumReviewsRoute
+  CurriculumReviewsRoute,
+  CurriculumRoute,
+  JobRoute
 };
+

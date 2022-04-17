@@ -6,6 +6,8 @@ import InstructorController from "./InstructorController";
 import CurriculumController from "./CurriculumController";
 import CurriculumMateriController from "./CurriculumMateriController";
 import CurriculumReviewsController from "./CurriculumReviewsController";
+import JobController from "./JobController"
+
 
 export default {
   UserController,
@@ -15,5 +17,7 @@ export default {
   InstructorController,
   CurriculumController,
   CurriculumMateriController,
-  CurriculumReviewsController
+  CurriculumReviewsController,
+  JobController
 };
+
