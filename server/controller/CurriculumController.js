@@ -1,11 +1,13 @@
 const findAll = async (req,res) =>{
     try {
         const result = await req.context.models.curriculum.findAll()
-        return res.status(200).json(result)
+        return res.json(200).send(result)
     } catch (error) {
-        return res.status(404).send('Data not found')
+        return res.status(404).send('no data found')
     }
 }
+
+
 const createCurr = async(req,res)=>{
     const {files,fields} = req.fileAttrb
     try {
@@ -42,7 +44,6 @@ const createCurr = async(req,res)=>{
         })
     }
 }
-
 
 
 export default {
