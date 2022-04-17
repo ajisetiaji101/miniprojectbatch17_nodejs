@@ -13,7 +13,7 @@ export default {
   BatchRoute,
   TalentRoute,
   InstructorRoute,
-  CurriculumMateriRoute,
+  CurriculumRoute,
   CurriculumMateriRoute,
   CurriculumReviewsRoute
 };
