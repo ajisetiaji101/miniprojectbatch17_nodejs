@@ -45,6 +45,7 @@ const createCurr = async(req,res)=>{
     }
 }
 
+
 export default {
     findAll,
     createCurr
