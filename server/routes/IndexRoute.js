@@ -15,5 +15,6 @@ export default {
   InstructorRoute,
   CurriculumMateriRoute,
   CurriculumMateriRoute,
-  CurriculumReviewsRoute
+  CurriculumReviewsRoute,
+  CurriculumRoute
 };
