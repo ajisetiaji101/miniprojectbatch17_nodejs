@@ -3,6 +3,7 @@ import PlacementController from "./PlacementController";
 import BatchController from "./BatchController";
 import TalentController from "./TalentController";
 import InstructorController from "./InstructorController";
+import CurriculumController from "./CurriculumController";
 import CurriculumMateriController from "./CurriculumMateriController";
 import CurriculumReviewsController from "./CurriculumReviewsController";
 
@@ -12,6 +13,7 @@ export default {
   BatchController,
   TalentController,
   InstructorController,
+  CurriculumController,
   CurriculumMateriController,
   CurriculumReviewsController
 };
