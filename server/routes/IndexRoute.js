@@ -1,4 +1,6 @@
 import UserRoute from "./UserRoute";
+import PlacementRoute from "./PlacementRoute";
+import BatchRoute from './BatchRoute';
 import TalentRoute from './TalentRoute';
 import InstructorRoute from "./InstructorRoute";
 import CurriculumRoute from "./CurriculumRoute";

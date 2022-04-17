@@ -3,7 +3,6 @@ import IndexController from "../controller/IndexController";
 
 const router = Router();
 
-router.get("/detail", IndexController.TalentController.detail);
-router.get("/", IndexController.TalentController.findAll);
+router.get("/", IndexController.BatchController.findAll);
 
 export default router;
