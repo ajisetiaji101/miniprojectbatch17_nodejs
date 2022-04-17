@@ -6,7 +6,8 @@ import InstructorController from "./instructorController";
 import CurriculumController from "./CurriculumController";
 import CurriculumMateriController from "./CurriculumMateriController";
 import CurriculumReviewsController from "./CurriculumReviewsController";
-import TalentController from "./TalentController";
+import JobController from "./JobController";
+
 
 export default {
   UserController,
