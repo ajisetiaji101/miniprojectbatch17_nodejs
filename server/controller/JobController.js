@@ -41,8 +41,12 @@ const list = async (req, res) => {
         "jobs_end_date",
         "jobs_upto_salary",
         "job_upto_experience",
+        "jobs_industry_type",
         "jobs_publish",
+        "jobs_status"
       ],
+      // where: { jobs_status: "open" },
+
     });
     return res.status(200).json({ jobs });
   } catch (error) {
