@@ -26,9 +26,9 @@ const findAll = async (req,res) =>{
                 }
             ]
         })
-        return res.json(200).send(result)
+        return res.status(200).json(result);
     } catch (error) {
-        return res.status(404).send('no data found')
+        return res.status(404).send('no data found');
     }
 }
 
