@@ -1,9 +1,9 @@
 const findAll = async (req, res) => {
   try {
     const result = await req.context.models.curriculum.findAll();
-    return res.json(200).send(result);
+    return res.status(200).json({ result });
   } catch (error) {
-    return res.status(404).send('no data found');
+    return res.status(404).send("no data found");
   }
 };
 
@@ -37,8 +37,8 @@ const createCurr = async (req, res) => {
     return res.send(result);
   } catch (error) {
     return res.status(404).json({
-      status: 'failed',
-      message: '',
+      status: "failed",
+      message: "",
       error: error,
     });
   }
@@ -53,11 +53,11 @@ const findOne = async (req, res, next) => {
       include: [
         {
           model: req.context.models.instructor,
-          as: 'curr_inst',
+          as: "curr_inst",
         },
         {
           model: req.context.models.curriculum_materi,
-          as: 'curriculum_materis',
+          as: "curriculum_materis",
         },
       ],
     });
