@@ -1,22 +1,18 @@
 const List = async (req, res) => {
   try {
-    const data = await req.context.models.talent_placement.findAll({
+    const data = await req.context.models.placement.findAll({
       include: [
         {
-          model: req.context.models.talent,
-          as: "tapl_tale",
+          model: req.context.models.client,
+          as: "place_client",
         },
         {
-          model: req.context.models.placement,
-          as: "tapl_place",
+          model: req.context.models.talent_placement,
+          as: "talent_placements",
           include: [
             {
-              model: req.context.models.client,
-              as: "place_client",
-            },
-            {
-              model: req.context.models.users,
-              as: "place_user",
+              model: req.context.models.talent,
+              as: "tapl_tale",
             },
           ],
         },
