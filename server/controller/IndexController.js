@@ -7,6 +7,7 @@ import CurriculumController from "./CurriculumController";
 import CurriculumMateriController from "./CurriculumMateriController";
 import CurriculumReviewsController from "./CurriculumReviewsController";
 import JobController from "./JobController";
+import BootcampController from "./BootcampController";
 
 export default {
   UserController,
@@ -17,6 +18,7 @@ export default {
   CurriculumController,
   CurriculumMateriController,
   CurriculumReviewsController,
-  JobController
+  JobController,
+  BootcampController
 };
 
