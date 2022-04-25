@@ -49,6 +49,7 @@ app.use(
   routes.CurriculumReviewsRoute
 );
 app.use(config.URL_DOMAIN + '/jobs', routes.JobRoute);
+app.use(config.URL_DOMAIN + '/bootcamp', routes.BootcampRoute);
 
 
 
