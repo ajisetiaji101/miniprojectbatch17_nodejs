@@ -6,8 +6,6 @@ const router = Router()
 
 router.get('/',IndexController.InstructorController.findAll)
 router.get('/images/:filename',uploadDownloadHelper.showProductImage)
-router.post('/',uploadDownloadHelper.uploadSingleFile,IndexController.InstructorController.createInst)
-router.put('/:id',uploadDownloadHelper.uploadSingleFile,IndexController.InstructorController.updateInst)
-router.delete('/:id',IndexController.InstructorController.remove)
+router.get('/:id',IndexController.InstructorController.findOne)
 
 export default router
