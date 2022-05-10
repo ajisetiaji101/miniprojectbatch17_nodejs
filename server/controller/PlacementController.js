@@ -18,7 +18,7 @@ const List = async (req, res) => {
         },
       ],
     });
-    res.status(200).send(result);
+    res.status(200).json(result);
   } catch (error) {
     console.log(error);
   }
