@@ -1,22 +1,43 @@
 const findAll = async (req,res) =>{
     try {
         const result = await req.context.models.curriculum.findAll({
-            include: [
+          attributes: ['curr_id', 
+                        'curr_name',
+                        'curr_title',
+                        'curr_duration',  
+                        'curr_total_talents',  
+                        'curr_total_batch',  
+                        'curr_learning_type',  
+                        'curr_rating'],  
+          include: [
                 {
-                    model: await req.context.models.instructor,
+                    model: req.context.models.instructor,
                     as: "curr_inst",
+                    attributes: [
+                        'inst_name'
+                    ],
                     include: [
                         {
-                            model: await req.context.models.batch,
+                            model: req.context.models.batch,
                             as: "batches",
+                            attributes: [
+                              'batch_name',
+                              'batch_type'
+                            ],
                             include: [
                                 {
-                                    model: await req.context.models.talent_batch,
+                                    model: req.context.models.talent_batch,
                                     as: "talent_batches",
+                                    attributes: [
+                                      'taba_tale_id'
+                                  ],
                                     include: [
                                         {
-                                            model: await req.context.models.talent,
-                                            as: "taba_tale"
+                                            model: req.context.models.talent,
+                                            as: "taba_tale",
+                                            attributes: [
+                                              'tale_fullname'
+                                            ],
                                         }
                                     ]
                                 }
