@@ -1,6 +1,6 @@
 const List = async (req, res) => {
   try {
-    const data = await req.context.models.placement.findAll({
+    const result = await req.context.models.placement.findAll({
       include: [
         {
           model: req.context.models.client,
@@ -18,7 +18,7 @@ const List = async (req, res) => {
         },
       ],
     });
-    res.status(200).json({ data });
+    res.status(200).send(result);
   } catch (error) {
     console.log(error);
   }

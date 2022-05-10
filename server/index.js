@@ -1,16 +1,16 @@
 // 1. pastikan selalu import dotenv di line pertama
-import 'dotenv/config';
-import config from './config/config';
-import express from 'express';
-import cors from 'cors';
-import compress from 'compression';
-import cookieParser from 'cookie-parser';
-import helmet from 'helmet';
-import middleware from './helpers/middleware';
+import "dotenv/config";
+import config from "./config/config";
+import express from "express";
+import cors from "cors";
+import compress from "compression";
+import cookieParser from "cookie-parser";
+import helmet from "helmet";
+import middleware from "./helpers/middleware";
 
 //for access models to db
-import models, { sequelize } from './models/init-models';
-import routes from './routes/IndexRoute';
+import models, { sequelize } from "./models/init-models";
+import routes from "./routes/IndexRoute";
 
 // declare port
 const port = process.env.PORT || 3000;
@@ -37,23 +37,16 @@ app.use(async (req, res, next) => {
 
 // call routes
 
-app.use(config.URL_DOMAIN + '/auth', routes.UserRoute);
-app.use(config.URL_DOMAIN + '/placement', routes.PlacementRoute);
-app.use(config.URL_DOMAIN + '/batch', routes.BatchRoute);
-app.use(config.URL_DOMAIN + '/talent', routes.TalentRoute);
-app.use(config.URL_DOMAIN + '/instructor', routes.InstructorRoute);
-app.use(config.URL_DOMAIN + '/curriculum', routes.CurriculumRoute);
-app.use(config.URL_DOMAIN + '/curriculum_materi', routes.CurriculumMateriRoute);
-app.use(
-  config.URL_DOMAIN + '/curriculum_reviews',
-  routes.CurriculumReviewsRoute
-);
-app.use(config.URL_DOMAIN + '/jobs', routes.JobRoute);
-app.use(config.URL_DOMAIN + '/bootcamp', routes.BootcampRoute);
-
-
-
-
+app.use(config.URL_API + "/auth", routes.UserRoute);
+app.use(config.URL_API + "/placement", routes.PlacementRoute);
+app.use(config.URL_API + "/batch", routes.BatchRoute);
+app.use(config.URL_API + "/talent", routes.TalentRoute);
+app.use(config.URL_API + "/instructor", routes.InstructorRoute);
+app.use(config.URL_API + "/curriculum", routes.CurriculumRoute);
+app.use(config.URL_API + "/curriculum_materi", routes.CurriculumMateriRoute);
+app.use(config.URL_API + "/curriculum_reviews", routes.CurriculumReviewsRoute);
+app.use(config.URL_API + "/jobs", routes.JobRoute);
+app.use(config.URL_API + "/bootcamp", routes.BootcampRoute);
 
 //use middleware to handle error from others modules
 app.use(middleware.handleError);
@@ -64,7 +57,7 @@ const dropDatabaseSync = false;
 
 sequelize.sync({ force: dropDatabaseSync }).then(async () => {
   if (dropDatabaseSync) {
-    console.log('Database do not drop');
+    console.log("Database do not drop");
   }
 
   app.listen(port, () => {
