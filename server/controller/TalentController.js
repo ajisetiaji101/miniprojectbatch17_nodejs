@@ -1,42 +1,40 @@
 const findAll = async (req,res) =>{
   try {
       const result = await req.context.models.talent.findAll({
-        attributes: ['tale_fullname',
-                    'tale_bootcamp'],  
-        include: [
-              {
-                  model: req.context.models.talent_batch,
+          include: [
+              {           
+                  model: await req.context.models.talent_batch,
                   as: "talent_batches",
-                  attributes: [
-                    'taba_id'
-                  ],
                   include: [
                       {
-                          model: req.context.models.batch,
-                          as: "taba_batch",
-                          attributes: [
-                            'batch_name'
-                          ],
-                          include: [
-                                      {
-                                          model: req.context.models.instructor,
-                                          as: "batch_inst",
-                                          attributes: [
-                                            'inst_name'
-                                          ]
-                                      }
-                                  ]
+                                  model: await req.context.models.batch,
+                                  as: "taba_batch",
+                                  include: [
+                                        {
+                                          model: await req.context.models.instructor,
+                                          as: "batch_inst"
+                                        }
+                                      ]
                               }
                           ]
-                      }
+                },
+                {
+                  model: req.context.models.talent_placement,
+                  as: "talent_placements",
+                  include : [
+                    {
+                      model: req.context.models.placement,
+                      as: "tapl_place",
+                    }
                   ]
-              })
+                },
+              ]
+      })
       return res.status(200).json(result);
   } catch (error) {
       return res.status(404).send('no data found');
   }
 }
-
 
 
 const findOne = async (req, res, next) => {
