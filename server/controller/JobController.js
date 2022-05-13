@@ -25,9 +25,9 @@ const create = async (req, res) => {
       jobs_user_id: req.body.jobs_user_id,
       jobs_client_id: req.body.jobs_client_id,
     });
-    return res.status(200).json({ jobs });
+    return res.send(jobs)
   } catch (error) {
-    return res.Status(404).json({ msg: "N0 DATA FOUND" });
+    res.status(404).json({message : error.message})
   }
 };
 
@@ -43,14 +43,15 @@ const list = async (req, res) => {
         "job_upto_experience",
         "jobs_industry_type",
         "jobs_publish",
+        "jobs_specification",
         "jobs_status"
       ],
       // where: { jobs_status: "open" },
 
     });
-    return res.status(200).json({ jobs });
+    return res.send(jobs)
   } catch (error) {
-    return res.Status(404).json({ msg: "N0 DATA FOUND" });
+    res.status(404).json({message : error.message})
   }
 };
 
