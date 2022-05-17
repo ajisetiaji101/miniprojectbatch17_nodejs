@@ -55,6 +55,17 @@ const list = async (req, res) => {
   }
 };
 
+const findOne = async (req,res) => {
+  try {
+    const job = await req.context.models.jobs.findOne({
+      where:{jobs_id:req.params.id}
+    })
+    return res.send(job)
+  } catch (error) {
+    return res.status(404).send("404 Not Found")
+  }
+}
+
 const update = async (req, res) => {
   const {
     jobs_post_no,
@@ -79,7 +90,7 @@ const update = async (req, res) => {
     jobs_client_id,
   } = req.body;
   try {
-    const jobs = await req.constext.models.jobs.update(
+    const jobs = await req.context.models.jobs.update(
       {
         jobs_post_no: jobs_post_no,
         jobs_title: jobs_title,
@@ -106,7 +117,7 @@ const update = async (req, res) => {
     );
     return res.send(jobs);
   } catch (error) {
-    return res.send(404).res.send("404 Not found");
+    return res.status(404).send("404 Not Found")
   }
 };
 
@@ -114,4 +125,5 @@ export default {
   create,
   list,
   update,
+  findOne
 };
