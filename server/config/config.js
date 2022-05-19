@@ -6,7 +6,7 @@ const config = {
   db_username: process.env.DATABASE_USER || "postgres",
   db_password: process.env.DATABASE_PASSWORD || "admin",
   URL_DOMAIN: "/codeid",
-  URL_IMAGE: "/codeid/images",
+  URL_IMAGE: "/codeid/api/images/",
   URL_API: "/codeid/api",
   UPLOAD_DIR: "/storages",
 };
