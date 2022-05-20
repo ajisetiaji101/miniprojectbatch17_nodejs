@@ -1,57 +1,50 @@
-const findAll = async (req,res) =>{
-    try {
-        const result = await req.context.models.curriculum.findAll({
-          attributes: ['curr_id', 
-                        'curr_name',
-                        'curr_title',
-                        'curr_duration',  
-                        'curr_total_talents',  
-                        'curr_total_batch',  
-                        'curr_learning_type',  
-                        'curr_rating'],  
+const findAll = async (req, res) => {
+  try {
+    const result = await req.context.models.curriculum.findAll({
+      attributes: [
+        "curr_id",
+        "curr_name",
+        "curr_title",
+        "curr_duration",
+        "curr_total_talents",
+        "curr_total_batch",
+        "curr_learning_type",
+        "curr_rating",
+      ],
+      include: [
+        {
+          model: req.context.models.instructor,
+          as: "curr_inst",
+          attributes: ["inst_name"],
           include: [
+            {
+              model: req.context.models.batch,
+              as: "batches",
+              attributes: ["batch_name", "batch_type"],
+              include: [
                 {
-                    model: req.context.models.instructor,
-                    as: "curr_inst",
-                    attributes: [
-                        'inst_name'
-                    ],
-                    include: [
-                        {
-                            model: req.context.models.batch,
-                            as: "batches",
-                            attributes: [
-                              'batch_name',
-                              'batch_type'
-                            ],
-                            include: [
-                                {
-                                    model: req.context.models.talent_batch,
-                                    as: "talent_batches",
-                                    attributes: [
-                                      'taba_tale_id'
-                                  ],
-                                    include: [
-                                        {
-                                            model: req.context.models.talent,
-                                            as: "taba_tale",
-                                            attributes: [
-                                              'tale_fullname'
-                                            ],
-                                        }
-                                    ]
-                                }
-                            ]
-                        }
-                    ]
-                }
-            ]
-        })
-        return res.status(200).json(result);
-    } catch (error) {
-        return res.status(404).send('no data found');
-    }
-}
+                  model: req.context.models.talent_batch,
+                  as: "talent_batches",
+                  attributes: ["taba_tale_id"],
+                  include: [
+                    {
+                      model: req.context.models.talent,
+                      as: "taba_tale",
+                      attributes: ["tale_fullname"],
+                    },
+                  ],
+                },
+              ],
+            },
+          ],
+        },
+      ],
+    });
+    return res.status(200).json(result);
+  } catch (error) {
+    return res.status(404).send("no data found");
+  }
+};
 
 const createCurr = async (req, res) => {
   const { files, fields } = req.fileAttrb;
@@ -122,7 +115,7 @@ const update = async (req, res, next) => {
 
     for (const field of fields) {
       const { fieldName, value } = field;
-      updateObj[fieldName] = value;
+      updateObj[fieldName] = value === "null" ? null : value;
     }
 
     for (const file of files) {
@@ -132,6 +125,9 @@ const update = async (req, res, next) => {
       } = file;
       updateObj[fieldName] = newFilename;
     }
+
+    updateObj.curr_createdon = updateObj.curr_createdon || new Date();
+    updateObj.curr_lastupdate = new Date();
 
     const result = await req.context.models.curriculum.update(updateObj, {
       where: { curr_id: id },
@@ -150,4 +146,3 @@ export default {
   findOne,
   update,
 };
-
