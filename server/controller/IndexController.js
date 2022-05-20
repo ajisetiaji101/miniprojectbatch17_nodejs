@@ -9,6 +9,7 @@ import CurriculumReviewsController from "./CurriculumReviewsController";
 import JobController from "./JobController";
 import BootcampController from "./BootcampController";
 import SettingController from "./SettingController";
+import ProcessBootcampController from "./ProcessBootcampController";
 
 export default {
   UserController,
@@ -22,4 +23,5 @@ export default {
   JobController,
   BootcampController,
   SettingController,
+  ProcessBootcampController,
 };

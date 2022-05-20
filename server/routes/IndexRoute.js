@@ -9,6 +9,7 @@ import CurriculumReviewsRoute from "./CurriculumReviewsRoute";
 import JobRoute from "./JobRoute";
 import BootcampRoute from "./BootcampRoute";
 import SettingRoute from "./SettingRoute";
+import ProcessBootCampRoute from "./ProcessBootcampRoute";
 
 export default {
   UserRoute,
@@ -22,4 +23,5 @@ export default {
   JobRoute,
   BootcampRoute,
   SettingRoute,
+  ProcessBootCampRoute,
 };
