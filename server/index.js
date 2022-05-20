@@ -47,6 +47,7 @@ app.use(config.URL_API + "/curriculum_materi", routes.CurriculumMateriRoute);
 app.use(config.URL_API + "/curriculum_reviews", routes.CurriculumReviewsRoute);
 app.use(config.URL_API + "/jobs", routes.JobRoute);
 app.use(config.URL_API + "/bootcamp", routes.BootcampRoute);
+app.use(config.URL_API+"/batchs",routes.BatchesRoute);
 
 //use middleware to handle error from others modules
 app.use(middleware.handleError);
