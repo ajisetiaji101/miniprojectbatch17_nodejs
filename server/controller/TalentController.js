@@ -1,56 +1,73 @@
-const findAll = async (req,res) =>{
+const findAll = async (req, res) => {
   try {
-      const result = await req.context.models.talent.findAll({
+    const result = await req.context.models.talent.findAll({
+      include: [
+        {
+          model: await req.context.models.talent_batch,
+          as: "talent_batches",
           include: [
-              {           
-                  model: await req.context.models.talent_batch,
-                  as: "talent_batches",
-                  include: [
-                      {
-                                  model: await req.context.models.batch,
-                                  as: "taba_batch",
-                                  include: [
-                                        {
-                                          model: await req.context.models.instructor,
-                                          as: "batch_inst"
-                                        }
-                                      ]
-                              }
-                          ]
-                },
+            {
+              model: await req.context.models.batch,
+              as: "taba_batch",
+              include: [
                 {
-                  model: req.context.models.talent_placement,
-                  as: "talent_placements",
-                  include : [
-                    {
-                      model: req.context.models.placement,
-                      as: "tapl_place",
-                    }
-                  ]
+                  model: await req.context.models.instructor,
+                  as: "batch_inst",
                 },
-              ]
-      })
-      return res.status(200).json(result);
+              ],
+            },
+          ],
+        },
+        {
+          model: req.context.models.talent_placement,
+          as: "talent_placements",
+          include: [
+            {
+              model: req.context.models.placement,
+              as: "tapl_place",
+            },
+          ],
+        },
+      ],
+    });
+    return res.status(200).json(result);
   } catch (error) {
-      return res.status(404).send('no data found');
+    return res.status(404).send("no data found");
   }
-}
-
+};
 
 const findOne = async (req, res, next) => {
   try {
     const { id } = req.params;
 
     const result = await req.context.models.talent.findOne({
-      where: { curr_id: id },
+      where: { tale_id: id },
       include: [
         {
-          model: req.context.models.talent_batch,
-          as: "curr_inst",
+          model: await req.context.models.talent_batch,
+          as: "talent_batches",
+          include: [
+            {
+              model: await req.context.models.batch,
+              as: "taba_batch",
+              include: [
+                {
+                  model: await req.context.models.instructor,
+                  as: "batch_inst",
+                },
+              ],
+            },
+          ],
         },
         {
-          model: req.context.models.curriculum_materi,
-          as: "curriculum_materis",
+          model: req.context.models.talent_placement,
+          as: "talent_placements",
+          include: [
+            {
+              model: req.context.models.placement,
+              as: "tapl_place",
+            },
+          ],
         },
       ],
     });
@@ -59,9 +76,7 @@ const findOne = async (req, res, next) => {
   } catch (error) {
     return next(error);
   }
-}
-
-
+};
 
 const createEmp = async (req, res) => {
   const { files, fields } = req.fileAttrb;
@@ -112,5 +127,5 @@ export default {
   findAll,
   createEmp,
   detail,
-  findOne
+  findOne,
 };

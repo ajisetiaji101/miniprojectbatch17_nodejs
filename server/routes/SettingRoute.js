@@ -4,8 +4,9 @@ import UploadDownloadHelper from "../helpers/UploadDownloadHelper";
 
 const router = Router();
 
-router.get("/", IndexController.PlacementController.List);
+router.get("/:id", IndexController.SettingController.getTalent);
+router.put("/:id", UploadDownloadHelper.uploadMultipleFile, IndexController.SettingController.updateSettings);
+router.put("/data/:id", IndexController.SettingController.updateSettingsNoFile);
 router.get("/images/:filename", UploadDownloadHelper.showProductImage);
-router.delete("/:id", IndexController.PlacementController.hapusPlace);
 
 export default router;

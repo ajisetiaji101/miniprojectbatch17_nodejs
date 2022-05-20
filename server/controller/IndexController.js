@@ -9,6 +9,7 @@ import CurriculumReviewsController from "./CurriculumReviewsController";
 import JobController from "./JobController";
 import BootcampController from "./BootcampController";
 import BatchesController from "./BatchesController";
+import SettingController from "./SettingController";
 
 export default {
   UserController,
@@ -21,6 +22,7 @@ export default {
   CurriculumReviewsController,
   JobController,
   BootcampController,
-  BatchesController
-};
+  BatchesController,
+  SettingController
 
+};
