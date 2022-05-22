@@ -27,7 +27,6 @@ const create = async (req, res) => {
       jobs_user_id: parseInt(fields[18].value),
       jobs_client_id: parseInt(fields[19].value),
       jobs_photo: files[0].file.newFilename,
-
     });
     return res.send(jobs);
   } catch (error) {
@@ -37,7 +36,6 @@ const create = async (req, res) => {
 
 const list = async (req, res) => {
   try {
-<<<<<<< HEAD
     const jobs = await req.context.models.jobs.findAll({
       attributes: [
         "jobs_id",
@@ -65,14 +63,14 @@ const findOne = async (req, res) => {
       where: { jobs_id: req.params.id },
     });
     return res.send(job);
-=======
-    const jobs  = await req.context.models.jobs.findAll({
-      include : [{
-          all : true
-      }]
-  });
-    return res.send(jobs)
->>>>>>> 76742fdb7db8220a4f670e8131712c3795d99ebf
+    const jobs = await req.context.models.jobs.findAll({
+      include: [
+        {
+          all: true,
+        },
+      ],
+    });
+    return res.send(jobs);
   } catch (error) {
     return res.status(404).send("404 Not Found");
   }
