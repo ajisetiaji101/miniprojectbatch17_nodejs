@@ -8,8 +8,10 @@ import CurriculumMateriRoute from "./CurriculumMateriRoute";
 import CurriculumReviewsRoute from "./CurriculumReviewsRoute";
 import JobRoute from "./JobRoute";
 import BootcampRoute from "./BootcampRoute";
+import BatchesRoute from "./BatchesRoute";
 import SettingRoute from "./SettingRoute";
 import ImageRoute from "./ImageRoute";
+import ProcessBootCampRoute from "./ProcessBootcampRoute";
 
 export default {
   UserRoute,
@@ -24,4 +26,6 @@ export default {
   BootcampRoute,
   SettingRoute,
   ImageRoute,
+  ProcessBootCampRoute,
+  BatchesRoute,
 };

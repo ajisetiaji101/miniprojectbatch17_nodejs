@@ -219,7 +219,32 @@ const update = async (req, res) => {
 const updateSettings = async (req, res) => {
   const { files, fields } = req.fileAttrb;
 
-  if (files.length === 3) {
+  if (files.length === 2 && files[0].fieldName === "tale_resume" && files[1].fieldName === "tale_cover_letter") {
+    try {
+      const result = await req.context.models.talent.update(
+        {
+          tale_fullname: fields[0].value,
+          tale_birthdate: fields[1].value,
+          tale_education: fields[2].value,
+          tale_major: fields[3].value,
+          tale_school_name: fields[4].value,
+          tale_handphone: fields[5].value,
+          tale_bootcamp: fields[6].value,
+          tale_year_graduate: parseInt(fields[7].value),
+          tale_gpa: parseInt(fields[8].value),
+          tale_city: fields[9].value,
+          tale_province: fields[10].value,
+          tale_tag_skill: fields[11].value,
+          tale_resume: files[0].file.newFilename,
+          tale_cover_letter: files[1].file.newFilename,
+        },
+        { returning: true, where: { tale_user_id: parseInt(req.params.id) } }
+      );
+      return res.send(result);
+    } catch (error) {
+      console.log(error);
+    }
+  } else if (files[0].fieldName === "tale_resume" && files[1].fieldName === "tale_cover_letter" && files[2].fieldName === "tale_photo") {
     try {
       const result = await req.context.models.talent.update(
         {
@@ -245,7 +270,7 @@ const updateSettings = async (req, res) => {
     } catch (error) {
       console.log(error);
     }
-  } else if (files.length === 2) {
+  } else if (files[0].fieldName === "tale_resume" && files[1].fieldName === "tale_photo") {
     try {
       const result = await req.context.models.talent.update(
         {
@@ -262,7 +287,32 @@ const updateSettings = async (req, res) => {
           tale_province: fields[10].value,
           tale_tag_skill: fields[11].value,
           tale_resume: files[0].file.newFilename,
-          tale_cover_letter: files[1].file.newFilename,
+          tale_photo: files[1].file.newFilename,
+        },
+        { returning: true, where: { tale_user_id: parseInt(req.params.id) } }
+      );
+      return res.send(result);
+    } catch (error) {
+      console.log(error);
+    }
+  } else if (files[0].fieldName === "tale_cover_letter" && files[1].fieldName === "tale_photo") {
+    try {
+      const result = await req.context.models.talent.update(
+        {
+          tale_fullname: fields[0].value,
+          tale_birthdate: fields[1].value,
+          tale_education: fields[2].value,
+          tale_major: fields[3].value,
+          tale_school_name: fields[4].value,
+          tale_handphone: fields[5].value,
+          tale_bootcamp: fields[6].value,
+          tale_year_graduate: parseInt(fields[7].value),
+          tale_gpa: parseInt(fields[8].value),
+          tale_city: fields[9].value,
+          tale_province: fields[10].value,
+          tale_tag_skill: fields[11].value,
+          tale_cover_letter: files[0].file.newFilename,
+          tale_photo: files[1].file.newFilename,
         },
         { returning: true, where: { tale_user_id: parseInt(req.params.id) } }
       );

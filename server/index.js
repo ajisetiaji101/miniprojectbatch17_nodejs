@@ -47,6 +47,8 @@ app.use(config.URL_API + "/curriculum_materi", routes.CurriculumMateriRoute);
 app.use(config.URL_API + "/curriculum_reviews", routes.CurriculumReviewsRoute);
 app.use(config.URL_API + "/jobs", routes.JobRoute);
 app.use(config.URL_API + "/bootcamp", routes.BootcampRoute);
+app.use(config.URL_API + "/processbootcamp", routes.ProcessBootCampRoute);
+app.use(config.URL_API + "/batchs", routes.BatchesRoute);
 app.use(config.URL_API + "/settings", routes.SettingRoute);
 
 app.use(config.URL_IMAGE + "/", routes.ImageRoute);
