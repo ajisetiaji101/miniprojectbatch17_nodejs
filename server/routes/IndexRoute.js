@@ -11,6 +11,7 @@ import BootcampRoute from "./BootcampRoute";
 import BatchesRoute from "./BatchesRoute";
 import SettingRoute from "./SettingRoute";
 import ProcessBootCampRoute from "./ProcessBootcampRoute";
+import TaleTimelineRoute from "./TalentTimelineRoute";
 
 export default {
   UserRoute,
@@ -26,4 +27,5 @@ export default {
   SettingRoute,
   ProcessBootCampRoute,
   BatchesRoute,
+  TaleTimelineRoute,
 };
