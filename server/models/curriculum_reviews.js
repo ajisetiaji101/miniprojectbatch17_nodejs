@@ -33,6 +33,11 @@ export default class curriculum_reviews extends Model {
         model: 'users',
         key: 'user_id'
       }
+    },
+    cure_photo: {
+      type: DataTypes.STRING(60),
+      allowNull: true
+      
     }
   }, {
     sequelize,

@@ -8,6 +8,7 @@ import CurriculumMateriRoute from "./CurriculumMateriRoute";
 import CurriculumReviewsRoute from "./CurriculumReviewsRoute";
 import JobRoute from './JobRoute';
 import BootcampRoute from './BootcampRoute'
+import ClientRoute from "./ClientRoute"
 
 
 export default {
@@ -20,6 +21,8 @@ export default {
   CurriculumMateriRoute,
   CurriculumReviewsRoute,
   JobRoute,
-  BootcampRoute
+  BootcampRoute,
+  ClientRoute,
+
 };
 

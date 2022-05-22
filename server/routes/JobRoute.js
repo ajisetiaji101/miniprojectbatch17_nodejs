@@ -11,5 +11,7 @@ router.post(
   );
 router.get('/',IndexController.JobController.list)
 router.put('/:id', IndexController.JobController.update)
+router.get('/images/:filename', uploadDownload.show_curr_logo);
+
 
 export default router
