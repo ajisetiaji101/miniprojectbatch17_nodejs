@@ -52,6 +52,8 @@ app.use(config.URL_API + "/batchs", routes.BatchesRoute);
 app.use(config.URL_API + "/settings", routes.SettingRoute);
 app.use(config.URL_API + "/talenttimeline", routes.TaleTimelineRoute);
 
+app.use(config.URL_IMAGE + "/", routes.ImageRoute);
+
 //use middleware to handle error from others modules
 app.use(middleware.handleError);
 app.use(middleware.notFound);

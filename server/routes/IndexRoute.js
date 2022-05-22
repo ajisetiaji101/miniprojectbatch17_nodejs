@@ -10,6 +10,7 @@ import JobRoute from "./JobRoute";
 import BootcampRoute from "./BootcampRoute";
 import BatchesRoute from "./BatchesRoute";
 import SettingRoute from "./SettingRoute";
+import ImageRoute from "./ImageRoute";
 import ProcessBootCampRoute from "./ProcessBootcampRoute";
 import TaleTimelineRoute from "./TalentTimelineRoute";
 
@@ -25,6 +26,7 @@ export default {
   JobRoute,
   BootcampRoute,
   SettingRoute,
+  ImageRoute,
   ProcessBootCampRoute,
   BatchesRoute,
   TaleTimelineRoute,

@@ -1,23 +1,20 @@
-import { Router } from 'express';
-import IndexController from '../controller/IndexController';
-import uploadDownload from '../middleware/uploadDownload';
-import UploadDownloadHelper from '../helpers/UploadDownloadHelper';
+import { Router } from "express";
+import IndexController from "../controller/IndexController";
+import UploadDownloadHelper from "../helpers/UploadDownloadHelper";
 
 const router = Router();
 
-
-router.get('/', IndexController.CurriculumController.findAll);
+router.get("/", IndexController.CurriculumController.findAll);
 router.post(
-  '/',
-  uploadDownload.uploadFiles,
+  "/",
+  UploadDownloadHelper.uploadSingleFile,
   IndexController.CurriculumController.createCurr
 );
-router.get('/:id', IndexController.CurriculumController.findOne);
+router.get("/:id", IndexController.CurriculumController.findOne);
 router.put(
-  '/:id',
+  "/:id",
   UploadDownloadHelper.uploadSingleFile,
   IndexController.CurriculumController.update
 );
-router.get('/images/:filename', uploadDownload.show_curr_logo);
 
 export default router;
