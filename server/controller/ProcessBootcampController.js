@@ -1,22 +1,21 @@
 const createProcessBootamp = async (req, res) => {
   const { files, fields } = req.fileAttrb;
   try {
-    const result = await req.context.models.talent.create(
-      {
-        tale_fullname: fields[0].value,
-        tale_birthdate: fields[1].value,
-        tale_major: fields[3].value,
-        tale_school_name: fields[4].value,
-        tale_education: fields[2].value,
-        tale_handphone: fields[5].value,
-        tale_bootcamp: fields[6].value,
-        tale_motivation: fields[7].value,
-        tale_resume: files[0].file.newFilename,
-        tale_photo: files[0].file.newFilename,
-      },
-      { returning: true, where: { tale_user_id: parseInt(req.params.id) } }
-    );
-    return res.send(result);
+    const result = await req.context.models.talent.create({
+      tale_fullname: fields[0].value,
+      tale_birthdate: fields[1].value,
+      tale_major: fields[2].value,
+      tale_school_name: fields[3].value,
+      tale_education: fields[4].value,
+      tale_handphone: fields[5].value,
+      tale_bootcamp: fields[6].value,
+      tale_motivation: fields[7].value,
+      tale_user_id: fields[8].value,
+      tale_id: fields[8].value,
+      tale_photo: files[0].file.newFilename,
+      tale_resume: files[1].file.newFilename,
+    });
+    return res.status(200).json(result);
   } catch (error) {
     console.log(error);
   }
@@ -31,14 +30,14 @@ const updateProcessBootamp = async (req, res) => {
         {
           tale_fullname: fields[0].value,
           tale_birthdate: fields[1].value,
-          tale_major: fields[3].value,
-          tale_school_name: fields[4].value,
-          tale_education: fields[2].value,
+          tale_major: fields[2].value,
+          tale_school_name: fields[3].value,
+          tale_education: fields[4].value,
           tale_handphone: fields[5].value,
           tale_bootcamp: fields[6].value,
           tale_motivation: fields[7].value,
           tale_resume: files[0].file.newFilename,
-          tale_photo: files[0].file.newFilename,
+          tale_photo: files[1].file.newFilename,
         },
         { returning: true, where: { tale_user_id: parseInt(req.params.id) } }
       );
@@ -52,9 +51,9 @@ const updateProcessBootamp = async (req, res) => {
         {
           tale_fullname: fields[0].value,
           tale_birthdate: fields[1].value,
-          tale_major: fields[3].value,
-          tale_school_name: fields[4].value,
-          tale_education: fields[2].value,
+          tale_major: fields[2].value,
+          tale_school_name: fields[3].value,
+          tale_education: fields[4].value,
           tale_handphone: fields[5].value,
           tale_bootcamp: fields[6].value,
           tale_motivation: fields[7].value,
@@ -72,9 +71,9 @@ const updateProcessBootamp = async (req, res) => {
         {
           tale_fullname: fields[0].value,
           tale_birthdate: fields[1].value,
-          tale_major: fields[3].value,
-          tale_school_name: fields[4].value,
-          tale_education: fields[2].value,
+          tale_major: fields[2].value,
+          tale_school_name: fields[3].value,
+          tale_education: fields[4].value,
           tale_handphone: fields[5].value,
           tale_bootcamp: fields[6].value,
           tale_motivation: fields[7].value,

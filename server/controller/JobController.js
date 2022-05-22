@@ -1,29 +1,33 @@
 import { sequelize } from "../models/init-models";
 
 const create = async (req, res) => {
+  const { files, fields } = req.fileAttrb;
+
   try {
     const jobs = await req.context.models.jobs.create({
-      jobs_post_no: req.body.jobs_post_no,
-      jobs_title: req.body.jobs_title,
-      jobs_start_date: req.body.jobs_start_date,
-      jobs_end_date: req.body.jobs_end_date,
-      jobs_upto_salary: req.body.jobs_upto_salary,
-      job_upto_experience: req.body.job_upto_experience,
-      jobs_description: req.body.jobs_description,
-      jobs_primary_skill: req.body.jobs_primary_skill,
-      jobs_secondary_skill: req.body.jobs_secondary_skill,
-      jobs_industry_type: req.body.jobs_industry_type,
-      jobs_working_type: req.body.jobs_working_type,
-      jobs_publish: req.body.jobs_publish,
-      jobs_remotely: req.body.jobs_remotely,
-      jobs_spec_education: req.body.jobs_spec_education,
-      jobs_benefit: req.body.jobs_benefit,
-      jobs_specification: req.body.jobs_specification,
-      jobs_status: req.body.jobs_status,
-      jobs_location: req.body.jobs_location,
-      jobs_city: req.body.jobs_city,
-      jobs_user_id: req.body.jobs_user_id,
-      jobs_client_id: req.body.jobs_client_id,
+      // jobs_post_no: fields[0].value,
+      jobs_title: fields[0].value,
+      jobs_start_date: fields[1].value,
+      jobs_end_date: fields[2].value,
+      jobs_upto_salary: parseInt(fields[3].value),
+      job_upto_experience: parseInt(fields[4].value),
+      jobs_description: fields[5].value,
+      jobs_primary_skill: fields[6].value,
+      jobs_secondary_skill: fields[7].value,
+      jobs_industry_type: fields[8].value,
+      jobs_working_type: fields[9].value,
+      jobs_publish: fields[10].value,
+      jobs_remotely: fields[11].value,
+      jobs_spec_education: fields[12].value,
+      jobs_benefit: fields[13].value,
+      jobs_specification: fields[14].value,
+      jobs_status: fields[15].value,
+      jobs_location: fields[16].value,
+      jobs_city: fields[17].value,
+      jobs_user_id: parseInt(fields[18].value),
+      jobs_client_id: parseInt(fields[19].value),
+      jobs_photo: files[0].file.newFilename,
+
     });
     return res.send(jobs);
   } catch (error) {
@@ -33,6 +37,7 @@ const create = async (req, res) => {
 
 const list = async (req, res) => {
   try {
+<<<<<<< HEAD
     const jobs = await req.context.models.jobs.findAll({
       attributes: [
         "jobs_id",
@@ -60,6 +65,14 @@ const findOne = async (req, res) => {
       where: { jobs_id: req.params.id },
     });
     return res.send(job);
+=======
+    const jobs  = await req.context.models.jobs.findAll({
+      include : [{
+          all : true
+      }]
+  });
+    return res.send(jobs)
+>>>>>>> 76742fdb7db8220a4f670e8131712c3795d99ebf
   } catch (error) {
     return res.status(404).send("404 Not Found");
   }

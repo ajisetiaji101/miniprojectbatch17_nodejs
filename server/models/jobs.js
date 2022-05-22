@@ -101,12 +101,22 @@ export default class jobs extends Model {
         model: 'client',
         key: 'client_id'
       }
+<<<<<<< HEAD
     },
     jobs_photo:{
       type: DataTypes.STRING(255),
       allowNull:true
     }
   }, {
+=======
+  },
+  jobs_photo: {
+    type: DataTypes.STRING(85),
+    allowNull: true,
+    },
+  },
+  {
+>>>>>>> 76742fdb7db8220a4f670e8131712c3795d99ebf
     sequelize,
     tableName: 'jobs',
     schema: 'public',
