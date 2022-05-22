@@ -13,7 +13,7 @@
     "buildw": "npm run cleanw && npm run build-server",
     "test": "jest",
     "sql": "npx sequelize-cli db:seed:all",
-    "reverse:db": "sequelize-auto -o ./schemas -d prj_1 -h localhost -u postgres -p 5432 -x bangkit2021 -e postgres -l esm"
+    "reverse:db": "sequelize-auto -o ./schemas -d codeiddb -h localhost -u postgres -p 5432 -x admin -e postgres -l esm"
   },
   "dependencies": {
     "bcrypt": "^5.0.1",
