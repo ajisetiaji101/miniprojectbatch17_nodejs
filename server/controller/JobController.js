@@ -1,4 +1,5 @@
 import { sequelize } from "../models/init-models";
+import UploadDownloadHelper from "../helpers/UploadDownloadHelper";
 
 const create = async (req, res) => {
   const { files, fields } = req.fileAttrb;
@@ -77,30 +78,7 @@ const findOne = async (req, res) => {
 };
 
 const update = async (req, res) => {
-  const { fields } = req.fileAttrb;
-  // const {
-  //   jobs_post_no,
-  //   jobs_title,
-  //   jobs_start_date,
-  //   jobs_end_time,
-  //   jobs_upto_salary,
-  //   jobs_description,
-  //   jobs_primary_skill,
-  //   jobs_secondary_skill,
-  //   jobs_industry_type,
-  //   jobs_working_type,
-  //   jobs_publish,
-  //   jobs_remotely,
-  //   jobs_spec_education,
-  //   jobs_benefit,
-  //   jobs_specification,
-  //   jobs_status,
-  //   jobs_location,
-  //   jobs_city,
-  //   jobs_user_id,
-  //   jobs_client_id,
-  //   jobs_photo
-  // } = req.body;
+  const { fields, files } = req.fileAttrb;
   try {
     const jobs = await req.context.models.jobs.update(
       {
@@ -125,6 +103,7 @@ const update = async (req, res) => {
         jobs_city: fields[18].value,
         jobs_user_id: parseInt(fields[19].value),
         jobs_client_id: parseInt(fields[20].value),
+        jobs_photo: files[0].newFilename,
         // jobs_photo: jobs_photo
         // jobs_id: fields[21].value,
       },
