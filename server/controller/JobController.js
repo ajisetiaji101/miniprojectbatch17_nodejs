@@ -103,8 +103,20 @@ const update = async (req, res) => {
   }
 };
 
+const remove = async (req,res)=>{
+  try {
+      const jobs = await req.context.models.jobs.destroy({
+          where :  {jobs_id : req.params.id}
+      })
+      return res.send("delete"+jobs+"rows")
+  } catch (error) {
+      return res.status(404).send("not found")
+  }
+}
+
 export default {
   create,
   list,
   update,
+  remove
 };
