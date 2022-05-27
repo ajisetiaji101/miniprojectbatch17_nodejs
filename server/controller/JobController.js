@@ -64,14 +64,6 @@ const findOne = async (req, res) => {
       where: { jobs_id: req.params.id },
     });
     return res.send(job);
-    const jobs = await req.context.models.jobs.findAll({
-      include: [
-        {
-          all: true,
-        },
-      ],
-    });
-    return res.send(jobs);
   } catch (error) {
     return res.status(404).send("404 Not Found");
   }
@@ -85,9 +77,9 @@ const update = async (req, res) => {
         // jobs_post_no: fields[0].value,
         jobs_title: fields[0].value,
         jobs_start_date: fields[1].value,
-        jobs_end_time: fields[2].value,
+        jobs_end_date: fields[2].value,
         jobs_upto_salary: parseInt(fields[3].value),
-        job_upto_experience: fields[4].value,
+        job_upto_experience: parseInt(fields[4].value),
         jobs_description: fields[5].value,
         jobs_primary_skill: fields[6].value,
         jobs_secondary_skill: fields[7].value,
@@ -103,9 +95,7 @@ const update = async (req, res) => {
         jobs_city: fields[17].value,
         jobs_user_id: parseInt(fields[18].value),
         jobs_client_id: parseInt(fields[19].value),
-        jobs_photo: files[0].newFilename,
-        // jobs_photo: jobs_photo
-        // jobs_id: fields[21].value,
+        jobs_photo: files[0].file.newFilename,
       },
       { returning: true, where: { jobs_id: parseInt(req.params.id) } }
     );
@@ -115,9 +105,65 @@ const update = async (req, res) => {
   }
 };
 
+const updateJobsNoFile = async (req, res) => {
+  const {
+    jobs_title,
+    jobs_start_date,
+    jobs_end_date,
+    jobs_upto_salary,
+    job_upto_experience,
+    jobs_description,
+    jobs_primary_skill,
+    jobs_secondary_skill,
+    jobs_industry_type,
+    jobs_working_type,
+    jobs_publish,
+    jobs_remotely,
+    jobs_spec_education,
+    jobs_benefit,
+    jobs_specification,
+    jobs_status,
+    jobs_location,
+    jobs_city,
+    jobs_user_id,
+    jobs_client_id,
+  } = req.body;
+  // console.log(req.body);
+  const result = await req.context.models.jobs.update(
+    {
+      jobs_title,
+      jobs_start_date,
+      jobs_end_date,
+      jobs_upto_salary,
+      job_upto_experience,
+      jobs_description,
+      jobs_primary_skill,
+      jobs_secondary_skill,
+      jobs_industry_type,
+      jobs_working_type,
+      jobs_publish,
+      jobs_remotely,
+      jobs_spec_education,
+      jobs_benefit,
+      jobs_specification,
+      jobs_status,
+      jobs_location,
+      jobs_city,
+      jobs_user_id,
+      jobs_client_id,
+    },
+    {
+      returning: true,
+      where: { jobs_id: req.params.id },
+    }
+  );
+  return res.send(result);
+};
+
 export default {
   create,
   list,
   update,
   findOne,
+  updateJobsNoFile,
 };
