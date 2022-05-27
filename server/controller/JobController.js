@@ -59,7 +59,7 @@ const update = async (req, res) => {
         jobs_start_date: fields[1].value,
         jobs_end_time: fields[2].value,
         jobs_upto_salary: parseInt(fields[3].value),
-        job_upto_experience: fields[4].value,
+        job_upto_experience: parseInt(fields[4].value),
         jobs_description: fields[5].value,
         jobs_primary_skill: fields[6].value,
         jobs_secondary_skill: fields[7].value,
@@ -75,7 +75,7 @@ const update = async (req, res) => {
         jobs_city: fields[17].value,
         jobs_user_id: parseInt(fields[18].value),
         jobs_client_id: parseInt(fields[19].value),
-        jobs_photo: files[0].newFilename,
+        jobs_photo: files[0].file.newFilename,
         // jobs_photo: jobs_photo
         // jobs_id: fields[21].value,
       },
