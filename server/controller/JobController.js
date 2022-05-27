@@ -38,18 +38,7 @@ const create = async (req, res) => {
 const list = async (req, res) => {
   try {
     const jobs = await req.context.models.jobs.findAll({
-      attributes: [
-        "jobs_id",
-        "jobs_title",
-        "jobs_start_date",
-        "jobs_end_date",
-        "jobs_upto_salary",
-        "job_upto_experience",
-        "jobs_industry_type",
-        "jobs_publish",
-        "jobs_specification",
-        "jobs_status",
-      ],
+      attributes: ["jobs_id", "jobs_title", "jobs_start_date", "jobs_end_date", "jobs_upto_salary", "job_upto_experience", "jobs_industry_type", "jobs_publish", "jobs_specification", "jobs_status"],
       // where: { jobs_status: "open" },
     });
     return res.send(jobs);
@@ -127,6 +116,7 @@ const updateJobsNoFile = async (req, res) => {
     jobs_city,
     jobs_user_id,
     jobs_client_id,
+    jobs_photo,
   } = req.body;
   // console.log(req.body);
   const result = await req.context.models.jobs.update(
@@ -151,6 +141,7 @@ const updateJobsNoFile = async (req, res) => {
       jobs_city,
       jobs_user_id,
       jobs_client_id,
+      jobs_photo,
     },
     {
       returning: true,
