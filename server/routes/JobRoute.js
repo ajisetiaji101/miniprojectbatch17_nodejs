@@ -11,6 +11,8 @@ router.post(
 router.get('/',IndexController.JobController.list)
 router.put('/:id', IndexController.JobController.update)
 router.delete("/:id", IndexController.JobController.remove);
+router.get("/:id", IndexController.JobController.findOne);
+
 router.get("/images/:filename", UploadDownloadHelper.showProductImage);
 
 

@@ -48,6 +48,17 @@ const list = async (req, res) => {
   }
 };
 
+const findOne = async (req, res) => {
+  try {
+    const job = await req.context.models.jobs.findOne({
+      where: { jobs_id: req.params.id },
+    });
+    return res.send(job);
+
+  } catch (error) {
+    return res.status(404).send("404 Not Found");
+  }
+};
 
 const update = async (req, res) => {
   const { files, fields } = req.fileAttrb;
@@ -102,5 +113,7 @@ export default {
   create,
   list,
   update,
-  remove
+  remove,
+  findOne
+
 };
