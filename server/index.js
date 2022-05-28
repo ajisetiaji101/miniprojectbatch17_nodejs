@@ -53,6 +53,7 @@ app.use(config.URL_API + "/settings", routes.SettingRoute);
 app.use(config.URL_API + "/talenttimeline", routes.TaleTimelineRoute);
 app.use(config.URL_API + "/hiring", routes.HiringRoute);
 app.use(config.URL_API + "/client", routes.ClientRoute);
+app.use(config.URL_API + "/hiringg", routes.Hiring2Route);
 
 app.use(config.URL_IMAGE + "/", routes.ImageRoute);
 
