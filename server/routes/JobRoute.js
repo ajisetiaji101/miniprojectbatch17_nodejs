@@ -9,7 +9,11 @@ router.post(
     IndexController.JobController.create
   );
 router.get('/',IndexController.JobController.list)
-router.put('/:id', IndexController.JobController.update)
+router.put(
+  "/:id",
+  UploadDownloadHelper.uploadMultipleFile,
+  IndexController.JobController.update
+);
 router.delete("/:id", IndexController.JobController.remove);
 router.get("/:id", IndexController.JobController.findOne);
 

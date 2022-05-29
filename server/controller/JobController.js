@@ -68,7 +68,7 @@ const update = async (req, res) => {
         // jobs_post_no: fields[0].value,
         jobs_title: fields[0].value,
         jobs_start_date: fields[1].value,
-        jobs_end_time: fields[2].value,
+        jobs_end_date: fields[2].value,
         jobs_upto_salary: parseInt(fields[3].value),
         job_upto_experience: parseInt(fields[4].value),
         jobs_description: fields[5].value,
