@@ -12,8 +12,8 @@ const createProcessBootamp = async (req, res) => {
       tale_motivation: fields[7].value,
       tale_user_id: fields[8].value,
       tale_id: fields[8].value,
-      tale_photo: files[0].file.newFilename,
-      tale_resume: files[1].file.newFilename,
+      tale_resume: files[0].file.newFilename,
+      tale_photo: files[1].file.newFilename,
     });
     return res.status(200).json(result);
   } catch (error) {

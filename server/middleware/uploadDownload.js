@@ -47,6 +47,8 @@ const show_curr_logo = async (req,res) =>{
         .on('error',()=> responseNotFound(req,res))
         .pipe(res)
 }
+
+
 function responseNotFound(req,res) {
     res.writeHead(404,{"Content-Type" : "text/plain"})
     res.end("Not Found")

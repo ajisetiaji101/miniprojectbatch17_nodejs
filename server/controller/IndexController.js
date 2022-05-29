@@ -13,6 +13,7 @@ import BatchesController from "./BatchesController";
 import SettingController from "./SettingController";
 import ProcessBootcampController from "./ProcessBootcampController";
 import TalentTimelineController from "./TalentTimelineController";
+import ClientController from "./ClientController"
 
 export default {
   UserController,
@@ -30,4 +31,5 @@ export default {
   ProcessBootcampController,
   BatchesController,
   TalentTimelineController,
+  ClientController,
 };
