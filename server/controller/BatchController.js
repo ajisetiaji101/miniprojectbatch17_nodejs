@@ -34,8 +34,13 @@ const findBatch = async (req, res) => {
                       'inst_id',
                       'inst_name'
                   ],
-                  required:false
-              }
+                    required:false,
+                    include:{
+                        model: req.context.models.curriculum,
+                        as: 'curriculums',
+                        required:false
+                  }
+              },
           ]
       });
       return res.send(result)
