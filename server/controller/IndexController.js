@@ -15,6 +15,8 @@ import ProcessBootcampController from "./ProcessBootcampController";
 import TalentTimelineController from "./TalentTimelineController";
 import ClientController from "./ClientController"
 import Hiring2Controller from "./Hiring2Controller";
+import AddPlacementController from "./AddPlacementController";
+import DasboardController from "./DasboardController";
 
 export default {
   UserController,
@@ -33,5 +35,7 @@ export default {
   BatchesController,
   TalentTimelineController,
   ClientController,
-  Hiring2Controller
+  Hiring2Controller,
+  AddPlacementController,
+  DasboardController
 };

@@ -16,6 +16,8 @@ import ProcessBootCampRoute from "./ProcessBootcampRoute";
 import TaleTimelineRoute from "./TalentTimelineRoute";
 import ClientRoute from "./ClientRoute"
 import Hiring2Route from './Hiring2Route'
+import AddPlacementRoute from './AddPlacementRoute';
+import DasboardRoute from './DasboardRoute';
 
 
 export default {
@@ -36,6 +38,7 @@ export default {
   BatchesRoute,
   TaleTimelineRoute,
   ClientRoute,
-  Hiring2Route
-
+  Hiring2Route,
+  AddPlacementRoute,
+  DasboardRoute
 };
