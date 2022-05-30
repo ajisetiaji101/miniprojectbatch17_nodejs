@@ -156,6 +156,7 @@ const update = async (req, res) => {
 //           tale_city: fields[9].value,
 //           tale_province: fields[10].value,
 //           tale_tag_skill: fields[11].value,
+// tale_email: fields[12].value,
 //           tale_resume: files[0].file.newFilename,
 //           tale_cover_letter: files[1].file.newFilename,
 //         },
@@ -181,6 +182,7 @@ const update = async (req, res) => {
 //           tale_city: fields[9].value,
 //           tale_province: fields[10].value,
 //           tale_tag_skill: fields[11].value,
+// tale_email: fields[12].value,
 //           tale_resume: files[0].file.newFilename,
 //         },
 //         { returning: true, where: { tale_user_id: parseInt(req.params.id) } }
@@ -205,6 +207,7 @@ const update = async (req, res) => {
 //           tale_city: fields[9].value,
 //           tale_province: fields[10].value,
 //           tale_tag_skill: fields[11].value,
+// tale_email: fields[12].value,
 //           tale_cover_letter: files[0].file.newFilename,
 //         },
 //         { returning: true, where: { tale_user_id: parseInt(req.params.id) } }
@@ -235,6 +238,7 @@ const updateSettings = async (req, res) => {
           tale_city: fields[9].value,
           tale_province: fields[10].value,
           tale_tag_skill: fields[11].value,
+          tale_email: fields[12].value,
           tale_resume: files[0].file.newFilename,
           tale_cover_letter: files[1].file.newFilename,
         },
@@ -260,6 +264,7 @@ const updateSettings = async (req, res) => {
           tale_city: fields[9].value,
           tale_province: fields[10].value,
           tale_tag_skill: fields[11].value,
+          tale_email: fields[12].value,
           tale_resume: files[0].file.newFilename,
           tale_cover_letter: files[1].file.newFilename,
           tale_photo: files[2].file.newFilename,
@@ -270,7 +275,7 @@ const updateSettings = async (req, res) => {
     } catch (error) {
       console.log(error);
     }
-  } else if (files[0].fieldName === "tale_resume" && files[1].fieldName === "tale_photo") {
+  } else if (files.length === 2 && files[0].fieldName === "tale_resume" && files[1].fieldName === "tale_photo") {
     try {
       const result = await req.context.models.talent.update(
         {
@@ -286,6 +291,7 @@ const updateSettings = async (req, res) => {
           tale_city: fields[9].value,
           tale_province: fields[10].value,
           tale_tag_skill: fields[11].value,
+          tale_email: fields[12].value,
           tale_resume: files[0].file.newFilename,
           tale_photo: files[1].file.newFilename,
         },
@@ -295,7 +301,7 @@ const updateSettings = async (req, res) => {
     } catch (error) {
       console.log(error);
     }
-  } else if (files[0].fieldName === "tale_cover_letter" && files[1].fieldName === "tale_photo") {
+  } else if (files.length === 2 && files[0].fieldName === "tale_cover_letter" && files[1].fieldName === "tale_photo") {
     try {
       const result = await req.context.models.talent.update(
         {
@@ -311,6 +317,7 @@ const updateSettings = async (req, res) => {
           tale_city: fields[9].value,
           tale_province: fields[10].value,
           tale_tag_skill: fields[11].value,
+          tale_email: fields[12].value,
           tale_cover_letter: files[0].file.newFilename,
           tale_photo: files[1].file.newFilename,
         },
@@ -336,6 +343,7 @@ const updateSettings = async (req, res) => {
           tale_city: fields[9].value,
           tale_province: fields[10].value,
           tale_tag_skill: fields[11].value,
+          tale_email: fields[12].value,
           tale_resume: files[0].file.newFilename,
         },
         { returning: true, where: { tale_user_id: parseInt(req.params.id) } }
@@ -360,6 +368,7 @@ const updateSettings = async (req, res) => {
           tale_city: fields[9].value,
           tale_province: fields[10].value,
           tale_tag_skill: fields[11].value,
+          tale_email: fields[12].value,
           tale_cover_letter: files[0].file.newFilename,
         },
         { returning: true, where: { tale_user_id: parseInt(req.params.id) } }
@@ -384,6 +393,7 @@ const updateSettings = async (req, res) => {
           tale_city: fields[9].value,
           tale_province: fields[10].value,
           tale_tag_skill: fields[11].value,
+          tale_email: fields[12].value,
           tale_photo: files[0].file.newFilename,
         },
         { returning: true, where: { tale_user_id: parseInt(req.params.id) } }
@@ -396,7 +406,7 @@ const updateSettings = async (req, res) => {
 };
 
 const updateSettingsNoFile = async (req, res) => {
-  const { tale_fullname, tale_birthdate, tale_education, tale_major, tale_school_name, tale_handphone, tale_bootcamp, tale_year_graduate, tale_gpa, tale_city, tale_province, tale_tag_skill, tale__user_id } = req.body;
+  const { tale_fullname, tale_birthdate, tale_education, tale_major, tale_school_name, tale_handphone, tale_bootcamp, tale_year_graduate, tale_gpa, tale_city, tale_province, tale_tag_skill, tale_email, tale__user_id } = req.body;
   console.log(req.body);
   const result = await req.context.models.talent.update(
     {
@@ -412,6 +422,7 @@ const updateSettingsNoFile = async (req, res) => {
       tale_city: tale_city,
       tale_province: tale_province,
       tale_tag_skill: tale_tag_skill,
+      tale_email: tale_email,
     },
     {
       returning: true,
