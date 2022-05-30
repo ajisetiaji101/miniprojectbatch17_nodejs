@@ -38,7 +38,9 @@ app.use(async (req, res, next) => {
 // call routes
 
 app.use(config.URL_API + "/auth", routes.UserRoute);
+app.use(config.URL_API + "/dasboard",routes.DasboardRoute)
 app.use(config.URL_API + "/placement", routes.PlacementRoute);
+app.use(config.URL_API + "/placement/new",routes.AddPlacementRoute)
 app.use(config.URL_API + "/batch", routes.BatchRoute);
 app.use(config.URL_API + "/talent", routes.TalentRoute);
 app.use(config.URL_API + "/instructor", routes.InstructorRoute);
