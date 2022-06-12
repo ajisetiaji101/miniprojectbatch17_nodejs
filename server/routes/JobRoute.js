@@ -1,17 +1,23 @@
 import {Router} from "express";
 import IndexController from "../controller/IndexController";
-import uploadDownload from '../middleware/uploadDownload';
 import UploadDownloadHelper from '../helpers/UploadDownloadHelper';
 const router= Router()
 
 router.post(
     '/',
-    uploadDownload.uploadFiles,
+    UploadDownloadHelper.uploadSingleFile,
     IndexController.JobController.create
   );
 router.get('/',IndexController.JobController.list)
-router.put('/:id', IndexController.JobController.update)
-router.get('/images/:filename', uploadDownload.show_curr_logo);
+router.put(
+  "/:id",
+  UploadDownloadHelper.uploadMultipleFile,
+  IndexController.JobController.update
+);
+router.delete("/:id", IndexController.JobController.remove);
+router.get("/:id", IndexController.JobController.findOne);
+
+router.get("/images/:filename", UploadDownloadHelper.showProductImage);
 
 
 export default router
